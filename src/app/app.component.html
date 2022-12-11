@@ -1,0 +1,37 @@
+<!-- STRING INTERPOLATION -->
+<h1>String Interpolation</h1>
+<div>
+    <p>First Name: {{firstName}}</p>
+</div>
+
+<!-- PROPERTY BINDING -->
+<h1>Property Binding</h1>
+<div>
+    <p>Using "[ ]" as element property</p>
+    <h2 [innerHTML]="firstName"></h2>
+    <img [src]="imageURL" alt="image" />
+</div>
+
+<!-- TWO WAY BINDING with ngModel -->
+<h1>Two Way Binding example with [(ngModel)] -- Banana Box</h1>
+<p>Last Name value will change everytime you type in input</p>
+<p>ngModel: Doing binding and provide validation</p>
+
+<label>First Name:
+    <input type="text" [(ngModel)]="lastName">
+</label>
+<p [innerText]="lastName"></p>
+
+<article>
+    NOT: You will need <span>FormsModule</span> for form operations in your module component
+</article>
+
+<!-- TEMPLATE REFERENCE VARIABLE -->
+<h1>Template Reference Variable #reference</h1>
+<p>Elements share their variable information with Template Reference Variable</p>
+
+<input type="text" #favourite>
+<button (click)="handleFavourite(favourite.value)">Show it</button>
+<p [innerHTML]="favouriteAnimal"></p>
+
+<app-counter></app-counter>

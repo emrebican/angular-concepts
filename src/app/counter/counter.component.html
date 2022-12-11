@@ -1,0 +1,16 @@
+<h2>Counter Example</h2>
+<div>
+    <button (click)="increase()">increase</button>
+    <h3>Count: {{count}}</h3>
+    <button (click)="decrease()">decrease</button>
+</div>
+
+<h2>Select Example</h2>
+<label>What is your favourite color?</label>
+<select #favColor>
+    <option value="">Select One</option>
+    <option value="Red" (click)="handleColor(favColor.value)">Red</option>
+    <option value="Blue" (click)="handleColor(favColor.value)">Blue</option>
+    <option value="Black" (click)="handleColor(favColor.value)">Black</option>
+</select>
+<span [innerHTML]="favouriteColor"></span>
