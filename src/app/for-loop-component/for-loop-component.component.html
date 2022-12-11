@@ -1,1 +1,68 @@
-<p>for-loop-component works!</p>
+<h1>ngFor --For Loop in Angular</h1>
+<p>You can work with loops in angular thanks to ngFor</p>
+<small>Green bg rows are cool pokemons</small>
+<br>
+<br>
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Type</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pokemon of pokemons" [class.cool-indicator]="pokemon.isCool">
+            <td>{{pokemon.id}}</td>
+            <td>{{pokemon.name}}</td>
+            <td>{{pokemon.type}}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<br>
+
+<small>Green bg rows are good movies</small>
+<br>
+<br>
+<table>
+    <thead>
+        <th>Index</th>
+        <th>Year</th>
+        <th>Title</th>
+        <th>Rating</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let movie of movies; let i = index" [class.good-indicator]="movie.isGood"
+            [class.bad-indicator]="!movie.isGood">
+            <td>{{i}}</td>
+            <td>{{movie.year}}</td>
+            <td>{{movie.title}}</td>
+            <td>{{movie.rating}}.0</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<br>
+
+<small>Green bg rows are active players</small>
+<br>
+<br>
+<table>
+    <thead>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Active</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let player of players; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{player.name}}</td>
+            <td>{{player.age}}</td>
+            <td [class.isActive]="player.isActive">
+                <ng-container *ngIf="player.isActive; then yesActive else noActive"></ng-container>
+                <ng-template #yesActive>yes</ng-template>
+                <ng-template #noActive>no</ng-template>
+            </td>
+        </tr>
+    </tbody>
+</table>

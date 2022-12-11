@@ -1,0 +1,30 @@
+table,
+td,
+th {
+  border: 1px solid #ccc;
+}
+
+td,
+th {
+  padding: 2px 8px;
+}
+
+.cool-indicator {
+  background-color: lime;
+  color: #212121;
+}
+
+.good-indicator {
+  background-color: lime;
+  color: #212121;
+}
+
+.bad-indicator {
+  background-color: darkred;
+  color: #eee;
+}
+
+.isActive {
+  background-color: lime;
+  color: #212121;
+}
