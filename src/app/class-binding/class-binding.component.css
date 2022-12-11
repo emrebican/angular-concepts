@@ -1,0 +1,32 @@
+table,
+td,
+th {
+  border: 1px solid #ccc;
+}
+
+td,
+th {
+  padding: 2px 8px;
+}
+
+.mammal {
+  background-color: lightseagreen;
+  color: #212121;
+}
+
+.not {
+  background-color: darkred;
+  color: #ccc;
+}
+
+.like-indicator {
+  background-color: rgba(38, 129, 38, 0.553);
+}
+
+.container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 15px;
+  max-width: 400px;
+  margin-bottom: 10px;
+}

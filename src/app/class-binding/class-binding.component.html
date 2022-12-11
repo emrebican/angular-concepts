@@ -1,2 +1,66 @@
 <!-- ngClass -- Class Binding -->
 <h1>ngClass -- Class Binding</h1>
+
+<table>
+    <thead>
+        <td>Name</td>
+        <td>Environment</td>
+        <td>Mammal or Not</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let animal of animals">
+            <th>{{animal.name}}</th>
+            <th>{{animal.environment}}</th>
+            <th [ngClass]="{'mammal': animal.isMammal, 'not': !animal.isMammal}">
+                <div *ngIf="animal.isMammal; then yesMammal else noMammal"></div>
+                <ng-template #yesMammal>yes</ng-template>
+                <ng-template #noMammal>no</ng-template>
+            </th>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Don't "Map" but "ngFor"</h2>
+
+<p>Todos</p>
+<ul *ngFor="let todo of todos">
+    <li>{{todo}}</li>
+</ul>
+<br>
+<br>
+<p>Series I watched</p>
+<small>Greens are I liked</small>
+<br>
+<br>
+
+<div *ngFor="let item of series">
+    <div class="container" [ngClass]="{'like-indicator': item.like}">
+        <h3>{{item.title}}</h3>
+        <small>Year: {{item.year}}</small>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<h2>Not Working well todo list</h2>
+
+<input type="text" #itemRef>
+<button (click)="handleList(itemRef.value)">Add</button>
+
+<ul *ngFor="let listItem of lists, let idx = index">
+    <li (keydown)="idx">
+        <span>{{listItem.title}}</span>
+        <br>
+        <small>
+            <div *ngIf="listItem.isComplete; then completed else notCompleted"></div>
+            <ng-template #completed>Completed</ng-template>
+            <ng-template #notCompleted>Not Completed</ng-template>
+        </small>
+        <br>
+        <!-- <button (click)="handleComplete(idx)">Complete</button> -->
+        <!-- <button (click)="handleDelete(idx)">Delete</button> -->
+    </li>
+</ul>
