@@ -23,7 +23,10 @@ interface IPlayer {
 @Component({
   selector: 'app-for-loop-component',
   templateUrl: './for-loop-component.component.html',
-  styleUrls: ['../app.component.css', './for-loop-component.component.css']
+  styleUrls: [
+    '../home/home.component.css',
+    './for-loop-component.component.css'
+  ]
 })
 export class ForLoopComponentComponent {
   pokemons: IPokemon[] = [

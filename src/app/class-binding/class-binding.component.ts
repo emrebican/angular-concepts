@@ -15,7 +15,7 @@ interface ISerie {
 @Component({
   selector: 'app-class-binding',
   templateUrl: './class-binding.component.html',
-  styleUrls: ['../app.component.css', './class-binding.component.css']
+  styleUrls: ['../home/home.component.css', './class-binding.component.css']
 })
 export class ClassBindingComponent {
   animals: IAnimal[] = [

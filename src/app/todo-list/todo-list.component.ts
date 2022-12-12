@@ -8,7 +8,7 @@ interface ITodoList {
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css', '../app.component.css']
+  styleUrls: ['./todo-list.component.css', '../home/home.component.css']
 })
 export class TodoListComponent {
   todoItem: string = '';
@@ -17,8 +17,10 @@ export class TodoListComponent {
   /* ADD */
   handleAdd() {
     let item: ITodoList = { title: this.todoItem, isComplete: false };
-    this.todoList.push(item);
-    this.todoItem = '';
+    if (this.todoItem !== '') {
+      this.todoList.push(item);
+      this.todoItem = '';
+    }
   }
 
   /* DELETE */

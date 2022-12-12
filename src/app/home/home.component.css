@@ -1,0 +1,38 @@
+h1 {
+  background-color: #ddd;
+  color: #212121;
+  padding: 5px;
+}
+
+img {
+  border-radius: 20px;
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid #ddd;
+  color: #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ddd;
+  color: #212121;
+}
+
+small {
+  text-decoration: underline;
+}
+
+article {
+  background-color: darkred;
+  display: inline-block;
+  padding: 5px;
+  font-size: 20px;
+}
+
+article span {
+  font-weight: bold;
+  font-size: 25px;
+}

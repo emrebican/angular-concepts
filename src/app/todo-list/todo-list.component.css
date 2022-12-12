@@ -18,9 +18,15 @@ input {
   width: 80px;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 ul li {
-  list-style-type: decimal;
+  list-style: none;
   border: 1px solid #ccc;
+  border-radius: 5px;
   width: 20%;
   padding: 5px 10px;
   display: flex;

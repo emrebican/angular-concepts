@@ -1,0 +1,111 @@
+<div>
+    <!-- STRING INTERPOLATION -->
+    <h1>String Interpolation</h1>
+    <div>
+        <p>First Name: {{firstName}}</p>
+    </div>
+
+    <!-- PROPERTY BINDING -->
+    <h1>Property Binding</h1>
+    <div>
+        <p>Using "[ ]" as element property</p>
+        <h2 [innerHTML]="firstName"></h2>
+        <img [src]="imageURL" alt="image" />
+    </div>
+
+    <!-- TWO WAY BINDING with ngModel -->
+    <h1>Two Way Binding example with [(ngModel)] -- Banana Box</h1>
+    <p>Last Name value will change everytime you type in input</p>
+    <p>ngModel: Doing binding and provide validation</p>
+
+    <label>First Name:
+        <input type="text" [(ngModel)]="lastName">
+    </label>
+    <p [innerText]="lastName"></p>
+
+    <article>
+        NOT: You will need <span>FormsModule</span> for form operations in your module component
+    </article>
+
+    <!-- TEMPLATE REFERENCE VARIABLE -->
+    <h1>Template Reference Variable #reference</h1>
+    <p>Elements share their variable information with Template Reference Variable</p>
+
+    <input type="text" #favourite>
+    <button (click)="handleFavourite(favourite.value)">Your Favourite Animal</button>
+    <p [innerHTML]="favouriteAnimal"></p>
+
+    <!-- Counter -->
+    <app-counter></app-counter>
+
+    <!-- ************** ngIf ************** -->
+    <!-- with Value -->
+    <h1>ngIf with -Value Property-</h1>
+    <p>ng is the angular version of conditional logic</p>
+    <input type="text" placeholder="your nationality" [value]="nationality" (input)="handleNation($event)" />
+    <br>
+    <br>
+
+    <!-- simple way -->
+    <small>Simple way</small>
+    <p>{{nationality}}</p>
+    <p *ngIf="!nationality">What is your nationality</p>
+    <br>
+    <br>
+    <!-- Then & Else Template -->
+    <small>Then & Else Template</small>
+    <ng-container *ngIf="nationality; then showNation else noNation"></ng-container>
+
+    <ng-template #showNation>
+        <p>{{nationality}}</p>
+    </ng-template>
+
+    <ng-template #noNation>
+        <p>What is your nationality</p>
+    </ng-template>
+
+    <!-- with ngModel -->
+    <h1>ngIf with -ngModel-</h1>
+    <input type="text" [(ngModel)]="country">
+
+    <div *ngIf="country; then showCountry else noCountry"></div>
+    <ng-template #showCountry>
+        <p>{{country}}</p>
+    </ng-template>
+
+    <ng-template #noCountry>
+        <p>Where are you from?</p>
+    </ng-template>
+
+    <article>
+        <span>NOT:</span>
+        You can use ngModel rather than value property
+        <br>
+        <span>NOT:</span>
+        You need <"ng-template"> element for using Template Reference Variable(#)
+    </article>
+    <br>
+    <br>
+    <br>
+
+    <!-- ngIf with Reference Template -->
+    <h1>ngIf with Reference Template</h1>
+    <input type="number" #ageRef>
+    <button (click)="handleAge(ageRef.value)">Type your age</button>
+    <div *ngIf="age; then showAge else noAge"></div>
+    <ng-template #showAge>
+        <p>{{age}}</p>
+    </ng-template>
+    <ng-template #noAge>
+        <p>Type your age</p>
+    </ng-template>
+
+    <!-- For-Loop-Component -->
+    <app-for-loop-component></app-for-loop-component>
+
+    <!-- Class Binding -->
+    <app-class-binding></app-class-binding>
+
+    <!-- TodoList -->
+    <app-todo-list></app-todo-list>
+</div>
