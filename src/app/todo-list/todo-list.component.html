@@ -1,0 +1,31 @@
+<h1>First todo list in Angular</h1>
+<div class="wrapper">
+    <input type="text" [(ngModel)]="todoItem">
+    <button (click)="handleAdd()" class="add_btn">Add</button>
+</div>
+<br>
+<br>
+<ng-container *ngIf="todoList.length; then showList else noList">
+</ng-container>
+<ng-template #noList>
+    <span>Type something to do...</span>
+</ng-template>
+<ng-template #showList>
+    <ul *ngFor="let listItem of todoList, let idx = index">
+        <li [ngClass]="{'completed':listItem.isComplete}">
+            <span>{{idx}}</span>
+            <p>{{listItem.title}}</p>
+            <br>
+            <small>
+                <div *ngIf="listItem.isComplete; then completed else notCompleted"></div>
+                <ng-template #completed>Completed</ng-template>
+                <ng-template #notCompleted>Not Completed</ng-template>
+            </small>
+            <br>
+            <div>
+                <button (click)="handleComplete(idx)">Complete</button>
+                <button (click)="handleDelete(idx)">Delete</button>
+            </div>
+        </li>
+    </ul>
+</ng-template>

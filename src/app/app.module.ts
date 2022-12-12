@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import { ForLoopComponentComponent } from './for-loop-component/for-loop-component.component';
 import { ClassBindingComponent } from './class-binding/class-binding.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @NgModule({
-  declarations: [AppComponent, CounterComponent, ForLoopComponentComponent, ClassBindingComponent],
+  declarations: [AppComponent, CounterComponent, ForLoopComponentComponent, ClassBindingComponent, TodoListComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]

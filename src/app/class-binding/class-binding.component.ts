@@ -12,11 +12,6 @@ interface ISerie {
   like: boolean;
 }
 
-interface ITodoList {
-  title: string;
-  isComplete: boolean;
-}
-
 @Component({
   selector: 'app-class-binding',
   templateUrl: './class-binding.component.html',
@@ -75,34 +70,4 @@ export class ClassBindingComponent {
       like: true
     }
   ];
-
-  todoList: ITodoList[] = [];
-
-  /* ADD */
-  handleAdd(value: string) {
-    let item: ITodoList = { title: value, isComplete: false };
-    this.todoList.push(item);
-  }
-
-  /* DELETE */
-  handleDelete(idx: number) {
-    /* this.todoList.splice(idx, 1);
-    console.log(this.todoList); */
-
-    let newList = this.todoList.filter((item: any, index) => index !== idx);
-    this.todoList = newList;
-  }
-
-  /* EDIT */
-  handleComplete(idx: number) {
-    /* this.todoList[idx] = {
-      ...this.todoList[idx],
-      isComplete: !this.todoList[idx].isComplete
-    }; */
-
-    let newList = this.todoList.map((item, index) =>
-      index === idx ? { ...item, isComplete: !item.isComplete } : item
-    );
-    this.todoList = newList;
-  }
 }
