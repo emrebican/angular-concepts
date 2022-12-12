@@ -12,7 +12,7 @@ interface ISerie {
   like: boolean;
 }
 
-interface IList {
+interface ITodoList {
   title: string;
   isComplete: boolean;
 }
@@ -76,26 +76,33 @@ export class ClassBindingComponent {
     }
   ];
 
-  lists: IList[] = [];
+  todoList: ITodoList[] = [];
 
-  handleList(value: string) {
-    let item: IList = { title: value, isComplete: false };
-    this.lists.push(item);
+  /* ADD */
+  handleAdd(value: string) {
+    let item: ITodoList = { title: value, isComplete: false };
+    this.todoList.push(item);
   }
 
+  /* DELETE */
+  handleDelete(idx: number) {
+    /* this.todoList.splice(idx, 1);
+    console.log(this.todoList); */
+
+    let newList = this.todoList.filter((item: any, index) => index !== idx);
+    this.todoList = newList;
+  }
+
+  /* EDIT */
   handleComplete(idx: number) {
-    let newList = this.lists.map((item: any, index: number) => {
-      if (index === idx) {
-        console.log('log', index);
-        return { ...item, isComplete: true };
-      }
-    });
-    this.lists = newList;
-    console.log(this.lists);
-  }
+    /* this.todoList[idx] = {
+      ...this.todoList[idx],
+      isComplete: !this.todoList[idx].isComplete
+    }; */
 
-  /* handleDelete(idx: number) {
-    this.lists.filter((item, index) => index !== idx);
-    console.log(this.lists);
-  } */
+    let newList = this.todoList.map((item, index) =>
+      index === idx ? { ...item, isComplete: !item.isComplete } : item
+    );
+    this.todoList = newList;
+  }
 }

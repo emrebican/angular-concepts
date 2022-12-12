@@ -45,12 +45,12 @@
 <br>
 <br>
 
-<h2>Not Working well todo list</h2>
+<h2>First todo list in Angular</h2>
 
 <input type="text" #itemRef>
-<button (click)="handleList(itemRef.value)">Add</button>
+<button (click)="handleAdd(itemRef.value)">Add</button>
 
-<ul *ngFor="let listItem of lists, let idx = index">
+<ul *ngFor="let listItem of todoList, let idx = index">
     <li (keydown)="idx">
         <span>{{listItem.title}}</span>
         <br>
@@ -60,7 +60,7 @@
             <ng-template #notCompleted>Not Completed</ng-template>
         </small>
         <br>
-        <!-- <button (click)="handleComplete(idx)">Complete</button> -->
-        <!-- <button (click)="handleDelete(idx)">Delete</button> -->
+        <button (click)="handleComplete(idx)">Complete</button>
+        <button (click)="handleDelete(idx)">Delete</button>
     </li>
 </ul>
