@@ -8,9 +8,9 @@ import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import { ForLoopComponentComponent } from './for-loop-component/for-loop-component.component';
 import { ClassBindingComponent } from './class-binding/class-binding.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { TodoListBaseModule } from './todo-list-base/todo-list-base.module';
 
 @NgModule({
   declarations: [
@@ -18,11 +18,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CounterComponent,
     ForLoopComponentComponent,
     ClassBindingComponent,
-    TodoListComponent,
     HomeComponent,
     PageNotFoundComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, TodoListBaseModule],
   providers: [],
   bootstrap: [AppComponent]
 })

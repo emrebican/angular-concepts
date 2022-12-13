@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
+  title: string;
 
+  constructor() {
+    this.title = 'About';
+  }
+
+  ngOnInit(): void {
+    console.log(`${this.title} is rendered`);
+  }
 }

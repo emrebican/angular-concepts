@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  title: string = 'Home';
   firstName: string = 'John';
   imageURL: string = 'https://picsum.photos/id/128/200/300';
   lastName: string = 'Doe';
@@ -13,6 +14,10 @@ export class HomeComponent {
   nationality: string = '';
   country: string = '';
   age: string = '';
+
+  ngOnInit(): void {
+    console.log(`${this.title} is rendered`);
+  }
 
   handleFavourite(value: string) {
     this.favouriteAnimal = value;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 interface ITodoList {
   title: string;
@@ -8,11 +8,20 @@ interface ITodoList {
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css', '../home/home.component.css']
+  styleUrls: ['../../home/home.component.css', './todo-list.component.css']
 })
-export class TodoListComponent {
+export class TodoListComponent implements OnInit {
   todoItem: string = '';
-  todoList: ITodoList[] = [];
+  todoList: ITodoList[];
+
+  constructor() {
+    this.todoItem = '';
+    this.todoList = [];
+  }
+
+  ngOnInit(): void {
+    console.log('todo-list component rendered');
+  }
 
   /* ADD */
   handleAdd() {

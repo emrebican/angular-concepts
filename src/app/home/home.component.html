@@ -1,6 +1,6 @@
 <div>
     <!-- STRING INTERPOLATION -->
-    <h1>String Interpolation</h1>
+    <h1 id="stringInterpolation">String Interpolation</h1>
     <div>
         <p>First Name: {{firstName}}</p>
     </div>
@@ -106,6 +106,143 @@
     <!-- Class Binding -->
     <app-class-binding></app-class-binding>
 
-    <!-- TodoList -->
-    <app-todo-list></app-todo-list>
+
+
+    <!-- ## MODULES ## -->
+    <div>
+        <h1>MODULES</h1>
+        <ul>
+            <li>Modules are largest logical code separations in Angular</li>
+            <li>The top level of the tree</li>
+        </ul>
+        <h3>Module Types</h3>
+        <ul>
+            <li><strong>Core: </strong>App</li>
+            <li>
+                <strong>Feature: </strong>
+                A feature module is a module in which all of the content is going to be encapsulated inside of a single
+                area.
+            </li>
+            <li>
+                <strong>Shared: </strong>
+                Services, universal components that you'll use all over the app.
+            </li>
+            <li>
+                <strong>Routing: </strong>
+                It is used to manage routes
+            </li>
+        </ul>
+
+        <br>
+        <br>
+        <h1>Creating commands</h1>
+        <p>
+            <strong [ngStyle]="{fontSize: '20px'}">ng generate module example-base</strong>
+            Create module (module: component container)
+        </p>
+        <p>
+            <strong [ngStyle]="{fontSize: '20px'}">ng generate component example-base/example
+                --module=example-base/example-base.module.ts</strong>
+            create component in its module folder route
+        </p>
+        <h2>folder route</h2>
+        <p>
+            .../pokemon-base <br />
+            .......pokemon-base.module.ts<br />
+            ......./pokemon-list<br />
+            ..........pokemon-list.component.css<br />
+            ..........pokemon-list.component.html<br />
+            ..........pokemon-list.component.spec.ts<br />
+            ..........pokemon-list.component.ts<br />
+        </p>
+
+        <article>
+            <span>IMPORTANT:</span> <br>
+            <u>in pokemon-base.module.ts</u><br>
+            <br>
+            <div [ngStyle]="{marginLeft: '20px'}">
+                <code>
+                    declarations: [PokemonListComponent], <br>
+                    exports: [PokemonListComponent]
+                </code>
+            </div>
+            <br>
+            <br>
+            <u>in app.module.ts</u><br>
+            <br>
+            <code
+                [ngStyle]="{marginLeft: '20px'}">imports: [BrowserModule, AppRoutingModule, FormsModule, PokemonBaseModule],</code>
+            <br>
+            <br>
+        </article>
+    </div>
+
+
+    <!-- ## COMPONENTS ## -->
+    <div>
+        <h1>Components</h1>
+        <p>Building blocks of UI</p>
+
+        <h2>Smart & Dumb Component</h2>
+        <p>
+            In Angular, <u>a "smart" component</u> is a component that is aware of and manages data, whereas <u>a "dumb"
+                component</u>
+            is a presentational component that simply displays data without any awareness of or control over it.
+        </p>
+        <p>
+            <u> Smart components</u> are typically responsible for managing application state and logic, while <u>dumb
+                components</u>
+            are responsible for rendering the user interface based on the data provided to them by the smart components.
+        </p>
+    </div>
+
+    <!-- ## DECORATOR ## -->
+    <div>
+        <h1>Decorator Template for Class</h1>
+        <p>Classes allow us to bundle primitive values basically.</p>
+        <br>
+        <br>
+        <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+            <code>
+                @Component <br>
+                ....selector: 'app-root', -----> component html tag <br> 
+                ....templateUrl: './app-component.html', -----> bind with component.html <br>
+                ....styleUrls:['./app-component.css'] -----> bind with component.css <br>
+            </code>
+        </div>
+        <br>
+        <br>
+        <article>
+            <span>NOT:</span>
+            <p>It's not crucially important to work with constructor in the class.</p>
+        </article>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- ## DECORATOR ## -->
+    <h1>LIFE CYCLES</h1>
+    <h2>1__OnInit</h2>
+    <p>A callback method that is invoked immediately after the default change detector has checked the directive's
+        data-bound properties for the first time,</p>
+    <br>
+    <br>
+    <article>
+        <span>NOT:</span>
+        <p>We need to import <strong>OnInit</strong> from <strong>@angular/core</strong></p>
+        <p>then implement <strong>OnInit</strong> to Class</p>
+        <p>then we can use with <strong>ngOnInit</strong> method</p>
+    </article>
+    <br>
+    <br>
+    <p>usage</p>
+    <br>
+    <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+        <code>
+            ngOnInit(): void <br>
+                console.log('Page rendered'); <br>
+            // We can see Page rendered message every renderin this component
+        </code>
+    </div>
+
 </div>
