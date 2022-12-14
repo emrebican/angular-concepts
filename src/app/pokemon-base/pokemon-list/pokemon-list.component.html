@@ -1,0 +1,130 @@
+<h1>List / Detail Page Pattern</h1>
+<p>After creating <strong>List</strong> (Smart) Component, then create <strong>Detail</strong>(Dumb) Component</p>
+<p>
+    <code [ngStyle]="{'fontSize': '20px'}">
+        <strong>ng generate component pokemon-base/pokemon-detail --module=pokemon-base/pokemon-base.module.ts</strong>
+    </code> --
+    create command
+</p>
+
+<div [ngStyle]="{'fontSize': '20px', 'marginTop': '40px'}">
+    <p>
+        <strong>Smart Component:</strong> Generating data base and pass down them to dumb component.
+    </p>
+
+    <p>
+        <strong>Dumb Component:</strong> It's not generate any data just accepting data from smart component "Input()"
+    </p>
+</div>
+<div>
+    <p><u>Folder Structure</u></p>
+    <br>
+    .../pokemon-base <br>
+    ......pokemon-base.module.ts <br>
+    ....../pokemon-list (Smart Component) <br>
+    ....../pokemon-detail (Dumb Component) <br>
+    ............pokemon-detail.component.html <br>
+    ............pokemon-detail.component.css <br>
+    ............pokemon-detail.component.spec.ts <br>
+    ............pokemon-detail.component.ts <br>
+</div>
+
+<div>
+    <p><u>Hooks</u></p>
+
+    <h3>Input:</h3>
+    <p>For sending data down -- list component ----> detail component</p>
+    <br>
+    <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+        <code>
+            @Input() -----> Data down <br>
+            detail!: IPokemon;		NOT: ! ---> null operator
+        </code>
+    </div>
+
+    <h3>Output:</h3>
+    <p>For sending data up the component tree -- detail component ----> list component</p>
+</div>
+
+<article>
+    <span>NOT:</span>
+    <p>Input -- data down</p>
+    <p>Output -- data up</p>
+    <h3>So we can send the data 2 ways in Angular</h3>
+</article>
+
+<div>
+    <h2>Pokemon List</h2>
+
+    <p>Doing mapping process with <strong>ngFor</strong> again but this time we'll add</p>
+
+    <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+        <code [ngStyle]="{'fontSize': '20px'}">*ngFor="let pokemon of pokemonList" [detail]="pokemon"</code>
+    </div>
+    <br>
+    <br>
+    <article>
+        <span>NOT:</span>
+        We sent the data down ---> to detail component
+    </article>
+    <br>
+    <br>
+    <br>
+    <h3>Now we want to delete an item of this list. So we need "Output"</h3>
+    <br>
+    <div>
+        <h3>Output:</h3>
+        <p>For sending data up the component tree -- detail component ----> list component</p>
+        <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+            <code>
+                @Output() -----> Data up <br>
+                remove: EventEmitter<\any/> = new EventEmitter();
+            </code>
+        </div>
+        <br>
+        <br>
+        <article>
+            <span>NOT:</span>
+            "remove" is just a word in Output
+        </article>
+    </div>
+
+    <h2>For remove an item</h2>
+    <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+        <code>
+            onRemove() <br>
+                this.remove.emit(this.detail);
+        </code>
+    </div>
+    <br>
+    <br>
+    <article>
+        <span>NOT:</span>
+        For deleting, We need to specify remove emit in list.html page and create a remove function in list.ts
+        <br>
+        <span>NOT:</span>
+        All this <strong>Input</strong> and <strong>Output</strong> processes in the <code
+            [ngStyle]="{'fontSize': '20px'}">detail.component.ts</code>
+        file.
+    </article>
+    <br>
+    <br>
+    <br>
+    <!-- <table>
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Cool</th>
+            <th>Stylish</th>
+        </thead>
+        <tbody>
+            <app-pokemon-detail *ngFor="let pokemon of pokemonList" [detail]="pokemon" (remove)="handleRemove($event)">
+            </app-pokemon-detail>
+        </tbody>
+    </table> -->
+    <div>
+        <app-pokemon-detail *ngFor="let pokemon of pokemonList" [detail]="pokemon" (remove)="handleRemove($event)">
+        </app-pokemon-detail>
+    </div>
+</div>

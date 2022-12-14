@@ -37,3 +37,14 @@ article span {
   font-weight: bold;
   font-size: 25px;
 }
+
+table,
+td,
+th {
+  border: 1px solid #ccc;
+}
+
+td,
+th {
+  padding: 2px 8px;
+}

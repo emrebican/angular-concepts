@@ -1,17 +1,5 @@
 import { Component } from '@angular/core';
-
-interface IAnimal {
-  name: string;
-  environment: string;
-  isMammal: boolean;
-}
-
-interface ISerie {
-  title: string;
-  year: number;
-  like: boolean;
-}
-
+import { IAnimal, ISerie } from '../models/constants';
 @Component({
   selector: 'app-class-binding',
   templateUrl: './class-binding.component.html',

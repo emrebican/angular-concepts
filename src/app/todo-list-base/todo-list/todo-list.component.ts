@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface ITodoList {
-  title: string;
-  isComplete: boolean;
-}
+import { ITodoList } from 'src/app/models/constants';
 
 @Component({
   selector: 'app-todo-list',

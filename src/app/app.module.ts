@@ -11,6 +11,7 @@ import { ClassBindingComponent } from './class-binding/class-binding.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TodoListBaseModule } from './todo-list-base/todo-list-base.module';
+import { PokemonBaseModule } from './pokemon-base/pokemon-base.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,13 @@ import { TodoListBaseModule } from './todo-list-base/todo-list-base.module';
     HomeComponent,
     PageNotFoundComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, TodoListBaseModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    TodoListBaseModule,
+    PokemonBaseModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
