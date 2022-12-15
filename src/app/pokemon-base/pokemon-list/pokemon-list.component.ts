@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IPokemon } from 'src/app/models/constants';
+import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -7,32 +8,17 @@ import { IPokemon } from 'src/app/models/constants';
   styleUrls: ['../../home/home.component.css', './pokemon-list.component.css']
 })
 export class PokemonListComponent {
-  pokemonList: IPokemon[];
+  pokemonList!: IPokemon[];
 
-  constructor() {
-    this.pokemonList = [
-      {
-        id: 1,
-        name: 'pikachu',
-        type: 'electric',
-        isCool: false,
-        isStylish: true
-      },
-      {
-        id: 2,
-        name: 'charmander',
-        type: 'fire',
-        isCool: true,
-        isStylish: true
-      },
-      {
-        id: 3,
-        name: 'squirtle',
-        type: 'water',
-        isCool: false,
-        isStylish: false
-      }
-    ];
+  // Dependency Injection usage
+  constructor(private service: PokemonService) {
+    this.pokemonList = [];
+  }
+
+  // When component first rendered, we'll got the pokemon data
+  ngOnInit(): void {
+    this.pokemonList = this.service.getPokemons();
+    console.log('PokemonList Component rendered and get pokemonList');
   }
 
   handleRemove(event: IPokemon) {

@@ -128,3 +128,112 @@
         </app-pokemon-detail>
     </div>
 </div>
+
+<!-- SERVICES & DEPENDENCY INJECTION -->
+<div>
+    <h1>Services and Dependency Injection</h1>
+    <div>
+        <h2>Services:</h2>
+        <p>Services:In Angular, a service is a class that provides a specific functionality that can be used across
+            multiple
+            components in an Angular app. Services in Angular are used to share data and functionality among different
+            components, and to abstract complex logic and code away from the components themselves. This allows the
+            components to focus on their main purpose, which is to present data to the user and to handle user
+            interactions.
+            Services are typically injected into components using Angular's dependency injection system, and they can be
+            used to perform a wide range of tasks, such as fetching data from a server, performing complex calculations,
+            and
+            providing access to shared application-level functionality.</p>
+    </div>
+    <div>
+        <h2>Dependency Injection (DI):</h2>
+        <p>Dependency injection (DI) is a software design pattern in which an object receives the dependencies it needs
+            from an external source rather than creating them itself. In Angular, dependency injection is used to
+            provide components with the services and other dependencies they need to perform their tasks. This is done
+            by injecting the dependencies into the component's constructor, which allows the component to use the
+            dependencies without having to create them itself. Dependency injection makes it possible to easily swap out
+            different implementations of a dependency, and it also makes it easier to test components by allowing
+            dependencies to be mocked or stubbed. Overall, dependency injection helps to improve the modularity and
+            reusability of code in an Angular app.</p>
+    </div>
+    <p>create</p>
+    <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+        <code>
+            <p>ng generate service "service-name"</p>
+        </code>
+    </div>
+    <br>
+    <br>
+    <article>
+        <span>NOT:</span>
+        <p>in module, you need to identify the service that you'll use</p>
+        <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+            <code>
+                <p>providers: [PokemonService]</p>
+            </code>
+        </div>
+    </article>
+
+    <br>
+    <br>
+    <br>
+    <article>
+        <span>NOT:</span>
+        <p>After creating a service which is a store of your data (pokemonList in this example), when you want to use
+            this service, so Dependency Injection will help you to inject your function.</p>
+    </article>
+
+    <h3>Process</h3>
+    <ol>
+        <li>Create <strong>Service Class</strong></li>
+        <li>Provide this Service in your module</li>
+        <li>Return the data in the Service Class</li>
+        <li>
+            <p>In the <strong>Smart Component</strong>, you need to inject your dependency (functions that you provide
+                in
+                Service Class)</p>
+            <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+                <code>
+                        constructor(private service: PokemonService)
+                    </code>
+            </div>
+        </li>
+        <li>
+            <p>If you want this data when your component renders first time, you need to use life-cycles. (onInit for
+                fist
+                rendering)</p>
+            <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+                <code>
+                    ngOnInit(): void <br>
+                        this.pokemonList = this.service.getPokemons();
+                </code>
+            </div>
+            <br>
+            <br>
+            <article>
+                <span>NOT:</span>
+                <p>Last processing, we're saying that we'll use PokemonService in this component</p>
+                <p>Then get our pokemonList data from service using getPokemons function and update pokemonList variable
+                </p>
+            </article>
+        </li>
+    </ol>
+    <br>
+    <br>
+    <article>
+        <span>NOT:</span>
+        <p>In the smart component, we define a variable which our data from service will update it.</p>
+        <p>We need to use <strong>null operator</strong> for avoiding conflicts, because our variable will be null in
+            the beginning.</p>
+        <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+            <code>
+                pokemonList!: IPokemon[];
+            </code>
+        </div>
+    </article>
+    <h3 [ngStyle]="{'backgroundColor': '#14B8A6', 'padding': '10px', 'color': '#212121'}">** We're doing the deleting
+        transaction with Services and DI concept
+        now. This is allowing us cleaner and
+        reusable
+        structure in the app. **</h3>
+</div>
