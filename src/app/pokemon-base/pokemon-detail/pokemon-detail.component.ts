@@ -13,7 +13,14 @@ export class PokemonDetailComponent {
   @Output()
   remove: EventEmitter<any> = new EventEmitter();
 
+  @Output()
+  toggle: EventEmitter<any> = new EventEmitter();
+
   onRemove() {
     this.remove.emit(this.detail);
+  }
+
+  onToggle() {
+    this.toggle.emit(this.detail);
   }
 }

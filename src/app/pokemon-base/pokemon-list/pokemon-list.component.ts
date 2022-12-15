@@ -7,7 +7,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['../../home/home.component.css', './pokemon-list.component.css']
 })
-export class PokemonListComponent {
+export class PokemonListComponent implements OnInit {
   pokemonList!: IPokemon[];
 
   // Dependency Injection usage
@@ -24,5 +24,16 @@ export class PokemonListComponent {
   handleRemove(event: IPokemon) {
     let newList = this.pokemonList.filter((pokemon) => pokemon.id !== event.id);
     this.pokemonList = newList;
+  }
+
+  handleToggle(event: IPokemon) {
+    this.pokemonList = this.pokemonList.map((pokemon) =>
+      pokemon.id === event.id
+        ? {
+            ...pokemon,
+            isCool: !pokemon.isCool
+          }
+        : pokemon
+    );
   }
 }

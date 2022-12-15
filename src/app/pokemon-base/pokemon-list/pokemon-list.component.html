@@ -124,8 +124,15 @@
         </tbody>
     </table> -->
     <div>
-        <app-pokemon-detail *ngFor="let pokemon of pokemonList" [detail]="pokemon" (remove)="handleRemove($event)">
-        </app-pokemon-detail>
+        <ng-container *ngIf="pokemonList.length > 0; then showPokemons else noPokemons"></ng-container>
+        <div>
+            <ng-template #showPokemons>
+                <app-pokemon-detail *ngFor="let pokemon of pokemonList" [detail]="pokemon"
+                    (remove)="handleRemove($event)" (toggle)="handleToggle($event)">
+                </app-pokemon-detail>
+            </ng-template>
+            <ng-template #noPokemons>There is no pokemons</ng-template>
+        </div>
     </div>
 </div>
 
