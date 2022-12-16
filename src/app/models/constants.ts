@@ -22,3 +22,9 @@ export interface ITodoList {
   title: string;
   isComplete: boolean;
 }
+
+export interface IUser {
+  id: number;
+  name: string;
+  isActive: boolean;
+}

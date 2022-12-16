@@ -17,8 +17,14 @@ export class PokemonListComponent implements OnInit {
 
   // When component first rendered, we'll got the pokemon data
   ngOnInit(): void {
+    /* Working service data */
     this.pokemonList = this.service.getPokemons();
-    console.log('PokemonList Component rendered and get pokemonList');
+
+    /* Working with an API (json-server) */
+    /* this.service.getPokemons().subscribe((data: any) => {
+      this.pokemonList = data;
+      console.log(data);
+    }); */
   }
 
   handleRemove(event: IPokemon) {

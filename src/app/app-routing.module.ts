@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { TodoListComponent } from './todo-list-base/todo-list/todo-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PokemonListComponent } from './pokemon-base/pokemon-list/pokemon-list.component';
+import { UsersListComponent } from './users-base/users-list/users-list.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'todolist', component: TodoListComponent },
   { path: 'pokemons', component: PokemonListComponent },
+  { path: 'users', component: UsersListComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

@@ -243,4 +243,48 @@
         now. This is allowing us cleaner and
         reusable
         structure in the app. **</h3>
+    <br>
+    <br>
+    <br>
+    <div>
+        <h1>Observables -- using for making code asynchronous</h1>
+        <p><strong>HTTPCLIENT</strong> -- Observable "wrapper" with a nice features specifically for Http requests</p>
+
+        <br>
+        <br>
+        <article>
+            <span>NOT:</span>
+            <p>Add the code to module</p>
+            <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+                <code>
+                    imports: [CommonModule, HttpClientModule],
+                </code>
+            </div>
+        </article>
+
+        <div>
+            <h3>...service file</h3>
+            <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+                <code>
+                    export class PokemonService <br>
+                        constructor(private http: HttpClient) <br> 
+               
+                         getPokemons(): Observable <br>
+                           return this.http.get(POKEMON_API); <br>
+                </code>
+            </div>
+            <br>
+            <br>
+            <br>
+            <h3>...list file</h3>
+            <div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+                <p>In life-cycle method(OnInit) we'll get data when component rendered</p>
+                <code>
+                    this.service.getPokemons().subscribe((data: IPokemon[]) => <br>
+                        console.log(data); <br>
+                        this.pokemonList = data; <br>
+                </code>
+            </div>
+        </div>
+    </div>
 </div>

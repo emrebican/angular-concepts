@@ -1,0 +1,46 @@
+<h1>Observables</h1>
+<h3>Using for making code asynchronous transactions</h3>
+<p>HTTPCLIENT -- Observable "wrapper" with a nice features specifically for Http requests</p>
+
+<br>
+<br>
+<article>
+    <span>NOT:</span>
+    <p>Need to import <strong>HttpClientModule to module.ts</strong></p>
+    <br>
+    <br>
+    <code>
+        imports: [CommonModule, HttpClientModule]
+    </code>
+</article>
+
+<br>
+<br>
+
+<h3>...list file</h3>
+<div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+    <code>
+        this.service.getPokemons().subscribe((data: IPokemon[]) => <br>
+            console.log(data); <br>
+            this.pokemonList = data; <br>
+      });
+    </code>
+</div>
+<br>
+<br>
+<br>
+<h3>...service file</h3>
+<div [ngStyle]="{border: '1px solid #ccc', display: 'inline-block', padding: '10px'}">
+    <code>
+        export class PokemonService <br>
+            constructor(private http: HttpClient) <br> 
+   <br>
+             getPokemons(): Observable<> <br> 
+               return this.http.get<>(POKEMON_API); <br>
+       }
+    </code>
+</div>
+<br>
+<br>
+<br>
+<app-users-detail *ngFor="let user of users" [detail]="user"></app-users-detail>

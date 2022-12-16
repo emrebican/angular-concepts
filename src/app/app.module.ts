@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TodoListBaseModule } from './todo-list-base/todo-list-base.module';
 import { PokemonBaseModule } from './pokemon-base/pokemon-base.module';
+import { UsersBaseModule } from './users-base/users-base.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PokemonBaseModule } from './pokemon-base/pokemon-base.module';
     AppRoutingModule,
     FormsModule,
     TodoListBaseModule,
-    PokemonBaseModule
+    PokemonBaseModule,
+    UsersBaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
